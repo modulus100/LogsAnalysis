@@ -1,0 +1,26 @@
+.dvd {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+body {
+    background-image: url("demo3.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.container {
+    padding: 80px 120px;
+    width: 800px;
+}
+
+.toolbar-header {
+    width: 34%;
+    margin: 0 auto;
+}
+
+.bar {
+    background-color: #42abb7;
+}
