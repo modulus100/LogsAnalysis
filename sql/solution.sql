@@ -1,7 +1,5 @@
 -- Task 1
-SELECT
-  art.title,
-  count(art.slug) AS cnt
+SELECT art.title, count(art.slug) AS cnt
 FROM log l
 INNER JOIN articles art ON l.path ILIKE '%' || art.slug || '%'
 GROUP BY art.title
@@ -10,9 +8,7 @@ LIMIT 3;
 
 
 -- Task 2
-SELECT
-  a.name,
-  count(a.name) AS cnt
+SELECT a.name, count(a.name) AS cnt
 FROM log l
 INNER JOIN articles art ON l.path ILIKE '%' || art.slug || '%'
 INNER JOIN authors a on a.id = art.author
@@ -22,7 +18,7 @@ LIMIT 3;
 
 
 -- Task 3
-CREATE OR REPLACE FUNCTION test(percent INTEGER)
+CREATE OR REPLACE FUNCTION get_dates_by_ratio(percent INTEGER)
   RETURNS TABLE(datetime TIMESTAMP WITHOUT TIME ZONE, pr FLOAT) AS $$
 BEGIN
   RETURN QUERY
@@ -41,4 +37,4 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
-SELECT * FROM test(1);
+SELECT * FROM get_dates_by_ratio(1);
