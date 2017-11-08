@@ -21,36 +21,42 @@ def main():
     return redirect('http://localhost:8080', code=302)
 
 
-@app.route('/api', methods=['POST'])
-def record_post_id():
-    post_id = request.get_json().get('id')
-
-    if post_id is None:
-        data = {'message': 'id is missing'}
-        return Response(json.dumps(data), status=422,
-                        mimetype='application/json')
-
-    try:
-        Service.add_author(post_id + 3, "lol2")
-    except (psycopg2.Error, ValueError):
-        data = {'message': "%s" % sys.exc_info()[1]}
-        return Response(json.dumps(data), status=503,
-                        mimetype='application/json')
-
-    data = {'message': 'success', 'id': post_id}
-    return Response(json.dumps(data), status=200, mimetype='application/json')
-
-
 @app.route('/api/authors', methods=['GET'])
 def get_authors():
     try:
-        authors = Service.get_authors()
+        authors = Service.get_popular_authors()
     except (psycopg2.Error, ValueError):
         data = {'message': "%s" % sys.exc_info()[1]}
         return Response(json.dumps(data), status=503,
                         mimetype='application/json')
 
     data = {'message': authors}
+    return Response(json.dumps(data), status=200, mimetype='application/json')
+
+
+@app.route('/api/articles', methods=['GET'])
+def get_articles():
+    try:
+        articles = Service.get_popular_authors()
+    except (psycopg2.Error, ValueError):
+        data = {'message': "%s" % sys.exc_info()[1]}
+        return Response(json.dumps(data), status=503,
+                        mimetype='application/json')
+
+    data = {'message': articles}
+    return Response(json.dumps(data), status=200, mimetype='application/json')
+
+
+@app.route('/api/dates', methods=['GET'])
+def get_dates():
+    try:
+        dates = Service.get_dates()
+    except (psycopg2.Error, ValueError):
+        data = {'message': "%s" % sys.exc_info()[1]}
+        return Response(json.dumps(data), status=503,
+                        mimetype='application/json')
+
+    data = {'message': dates}
     return Response(json.dumps(data), status=200, mimetype='application/json')
 
 
