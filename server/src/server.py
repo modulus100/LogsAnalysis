@@ -21,19 +21,6 @@ def main():
     return redirect('http://localhost:8080', code=302)
 
 
-@app.route('/api/authors', methods=['GET'])
-def get_authors():
-    try:
-        authors = Service.get_popular_authors()
-    except (psycopg2.Error, ValueError):
-        data = {'message': "%s" % sys.exc_info()[1]}
-        return Response(json.dumps(data), status=503,
-                        mimetype='application/json')
-
-    data = {'message': authors}
-    return Response(json.dumps(data), status=200, mimetype='application/json')
-
-
 @app.route('/api/articles', methods=['GET'])
 def get_articles():
     try:
@@ -44,6 +31,19 @@ def get_articles():
                         mimetype='application/json')
 
     data = {'message': articles}
+    return Response(json.dumps(data), status=200, mimetype='application/json')
+
+
+@app.route('/api/authors', methods=['GET'])
+def get_authors():
+    try:
+        authors = Service.get_popular_authors()
+    except (psycopg2.Error, ValueError):
+        data = {'message': "%s" % sys.exc_info()[1]}
+        return Response(json.dumps(data), status=503,
+                        mimetype='application/json')
+
+    data = {'message': authors}
     return Response(json.dumps(data), status=200, mimetype='application/json')
 
 

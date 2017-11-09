@@ -23,9 +23,21 @@
         </md-toolbar>
         <md-content style="background: rgba(255,255,255,0.3);">
             <md-list>
-                <md-list-item class="md-2-line" ng-repeat="item in messages" ng-click="showDialog($event)" >
+                <md-list-item class="md-2-line" ng-click="showArticles($event)">
                     <div class="md-list-item-text" layout="column">
-                        <h3>{{item.what}}</h3>
+                        <h3>{{tasks[0].question}}</h3>
+                    </div>
+                    <md-divider class="dvd" ng-if="!$last"></md-divider>
+                </md-list-item>
+                <md-list-item class="md-2-line" ng-click="showAuthors($event)">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{tasks[1].question}}</h3>
+                    </div>
+                    <md-divider class="dvd" ng-if="!$last"></md-divider>
+                </md-list-item>
+                <md-list-item class="md-2-line"  ng-click="showDates($event)">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{tasks[2].question}}</h3>
                     </div>
                     <md-divider class="dvd" ng-if="!$last"></md-divider>
                 </md-list-item>

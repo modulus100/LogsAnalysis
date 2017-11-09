@@ -48,7 +48,7 @@ class DatabaseService(object):
         return authors
 
     @staticmethod
-    def get_dates(value):
+    def get_dates():
         """Days that did more than 1% of requests lead to errors."""
         query = """SELECT * FROM get_dates_by_ratio(1);"""
 
