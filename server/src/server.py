@@ -24,7 +24,7 @@ def main():
 @app.route('/api/articles', methods=['GET'])
 def get_articles():
     try:
-        articles = Service.get_popular_authors()
+        articles = Service.get_popular_articles()
     except (psycopg2.Error, ValueError):
         data = {'message': "%s" % sys.exc_info()[1]}
         return Response(json.dumps(data), status=503,

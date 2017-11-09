@@ -1,0 +1,50 @@
+<md-dialog aria-label="Articles">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Articles</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg"
+                             aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h3>{{tasks[0].question}}</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <ul class="list-inline" style="display: inline-block;">
+                            <li>{{articles.data.message[0][0]}}</li>
+                            <li> - </li>
+                            <li>{{articles.data.message[0][1]}}</li>
+                            <li> Views</li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <ul class="list-inline">
+                            <li>{{articles.data.message[1][0]}}</li>
+                            <li> - </li>
+                            <li>{{articles.data.message[1][1]}}</li>
+                            <li> Views</li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <ul class="list-inline">
+                            <li>{{articles.data.message[2][0]}}</li>
+                            <li> - </li>
+                            <li>{{articles.data.message[2][1]}}</li>
+                            <li> Views</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()" class="md-primary">
+                Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

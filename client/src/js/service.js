@@ -1,9 +1,8 @@
 var service = angular.module('service', [])
     .service('WebService', function ($http) {
-
         this.getArticles = function () {
             return $http({
-                url: "http://localhost:8000/api/authors",
+                url: "http://localhost:8000/api/articles",
                 method: "GET",
                 headers: {'Content-Type': 'application/json'}
             });
@@ -11,7 +10,7 @@ var service = angular.module('service', [])
 
         this.getAuthors = function () {
             return $http({
-                url: "http://localhost:8000/api/articles",
+                url: "http://localhost:8000/api/authors",
                 method: "GET",
                 headers: {'Content-Type': 'application/json'}
             });
