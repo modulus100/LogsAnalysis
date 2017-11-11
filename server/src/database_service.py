@@ -34,8 +34,7 @@ class DatabaseService(object):
             INNER JOIN articles art ON l.path ILIKE '%' || art.slug || '%'
             INNER JOIN authors a on a.id = art.author
             GROUP BY a.name
-            ORDER BY cnt DESC
-            LIMIT 3;"""
+            ORDER BY cnt DESC;"""
 
         db = psycopg2.connect(database=DBNAME)
         try:
