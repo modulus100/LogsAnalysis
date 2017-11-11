@@ -9,17 +9,12 @@ var app = angular.module('dialogDemo3', ['ngMaterial', 'service'])
             WebService.getArticles().then(function (response) {
                 $scope.articlesResponse = response;
                 $mdDialog.show({
-                    controller: DialogController,
+                    controller: ArticlesController,
                     templateUrl: 'articles.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: true
-                }).then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
                 });
-                console.log(response);
             }, function error(response) {
                 console.log(response)
             })
@@ -29,17 +24,12 @@ var app = angular.module('dialogDemo3', ['ngMaterial', 'service'])
             WebService.getAuthors().then(function (response) {
                 $scope.authorsResponse = response;
                 $mdDialog.show({
-                    controller: DialogController,
-                    templateUrl: 'articles.html',
+                    controller: AuthorsController,
+                    templateUrl: 'authors.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: true
-                }).then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
                 });
-                console.log(response);
             }, function error(response) {
                 console.log(response)
             })
@@ -49,26 +39,43 @@ var app = angular.module('dialogDemo3', ['ngMaterial', 'service'])
             WebService.getDates().then(function (response) {
                 $scope.datesResponse = response;
                 $mdDialog.show({
-                    controller: DialogController,
-                    templateUrl: 'articles.html',
+                    controller: DatesController,
+                    templateUrl: 'dates.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: true
-                }).then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
                 });
-                console.log(response);
             }, function error(response) {
                 console.log(response)
             })
         };
 
-        function DialogController($scope, $mdDialog) {
-            $scope.tasks = getTasks();
-            $scope.authors = getAuthorsResponse();
+        function ArticlesController($scope, $mdDialog) {
+            var task = getTasks()[0].question;
+
+            $scope.task = 'The' + task.substring(16, task.length);
             $scope.articles = getArticlesResponse();
+
+            $scope.cancel = function () {
+                $mdDialog.cancel();
+            };
+        }
+
+        function AuthorsController($scope, $mdDialog) {
+            var task = getTasks()[1].question;
+
+            $scope.task = 'The' + task.substring(16, task.length);
+            $scope.authors = getAuthorsResponse();
+
+            $scope.cancel = function () {
+                $mdDialog.cancel();
+            };
+        }
+
+        function DatesController($scope, $mdDialog) {
+            var task = getTasks()[2].question;
+
+            $scope.task = 'The' + task.substring(16, task.length);
             $scope.dates = getDatesResponse();
 
             $scope.cancel = function () {
