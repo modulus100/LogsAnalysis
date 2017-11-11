@@ -38,7 +38,7 @@ bellow has
 ```
 psql -d news
 ```
- and execute the query (All project queries can be found in sql folder)
+ Execute the query (All project queries can be found in sql folder)
  
 ```
 CREATE OR REPLACE FUNCTION get_dates_by_ratio(percent INTEGER)
@@ -81,7 +81,7 @@ vagrant@vagrant:/vagrant/LogsAnalysis$ npm i
 
 ```
 
-Run the client
+Run the client, next time you want to run the client use this only
 
 ```
 vagrant@vagrant:/vagrant/LogsAnalysis$ node bin/http-server
