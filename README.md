@@ -81,9 +81,27 @@ vagrant@vagrant:/vagrant/LogsAnalysis$ npm i
 
 ```
 
-Run the client, next time you want to run the client use this only
+Run the client P.S next time you want to run a client use this only
 
 ```
 vagrant@vagrant:/vagrant/LogsAnalysis$ node bin/http-server
+
+```
+If all is ok, then Node js will start listening on port 8080, open a browser
+ and go to http://localhost:8080/
+ 
+ ### Server
+ 
+ Go to server directory
+ 
+```
+vagrant@vagrant:/$ cd vagrant/LogsAnalysis/server/src
+
+```
+
+Run the server
+
+```
+vagrant@vagrant:/$ cd vagrant/LogsAnalysis/server/src python server.py
 
 ```
