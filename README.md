@@ -112,3 +112,8 @@ option you want to check and it will open a window.
  P.S. Responses are being handled around 10 - 20 seconds, at least on my 
  computer, 1.7 million records on virtual machine take a lot of time. 
  Loading bar should be added.
+ 
+ 
+ ### License
+ 
+ The MIT License https://opensource.org/licenses/MIT
