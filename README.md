@@ -106,7 +106,7 @@ vagrant@vagrant:/$ cd vagrant/LogsAnalysis/server/src python server.py
 
 ```
 
-Now application is ready for use, open http://localhost:8080/, click on any 
+Now application is ready for use, open http://localhost:8080/ and click on any 
 option you want to check and it will open a window. 
  
  P.S. Responses are being handled around 10 - 20 seconds, at least on my 
