@@ -105,3 +105,10 @@ Run the server
 vagrant@vagrant:/$ cd vagrant/LogsAnalysis/server/src python server.py
 
 ```
+
+Now application is ready for use, open http://localhost:8080/, click on any 
+option you want to check and it will open a window. 
+ 
+ P.S. Responses are being handled around 10 - 20 seconds, at least on my 
+ computer, 1.7 million records on virtual machine take a lot of time. 
+ Loading bar should be added.
