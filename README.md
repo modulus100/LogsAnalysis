@@ -16,7 +16,7 @@ popular authors, articles and the dates did more than 1% of requests lead to
 
 To use this application you have to have installed Python 3, Node js, npm.
 
-###Node js
+### Node js
 
 ```sh
 vagrant@vagrant:~$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
