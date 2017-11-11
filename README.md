@@ -90,6 +90,8 @@ vagrant@vagrant:/vagrant/LogsAnalysis$ node bin/http-server
 If all is ok, then Node js will start listening on port 8080, open a browser
  and go to http://localhost:8080/
  
+ Additional info: https://github.com/indexzero/http-server
+ 
  ### Server
  
  Go to server directory
