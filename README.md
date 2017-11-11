@@ -66,3 +66,24 @@ $$ LANGUAGE PLPGSQL;
 
 
 ### Client
+
+Go to project directory
+
+```
+vagrant@vagrant:/$ cd vagrant/LogsAnalysis
+
+```
+Run these commands once before running the client first time
+
+```
+vagrant@vagrant:/vagrant/LogsAnalysis$ npm install http-server -g
+vagrant@vagrant:/vagrant/LogsAnalysis$ npm i
+
+```
+
+Run the client
+
+```
+vagrant@vagrant:/vagrant/LogsAnalysis$ node bin/http-server
+
+```
