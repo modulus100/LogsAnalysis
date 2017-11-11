@@ -12,7 +12,7 @@ popular authors, articles and the dates did more than 1% of requests lead to
  errors.
  
  
-## Instructions
+## Setup
  
 ### Node js
 Vagrant has to have installed Node js to serve static files. If 
@@ -36,7 +36,7 @@ bellow has
 ```
 psql -d news
 ```
- and execute the query
+ and execute the query (All project queries can be found in sql folder)
  
 ```
 CREATE OR REPLACE FUNCTION get_dates_by_ratio(percent INTEGER)
@@ -58,3 +58,5 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 ```
+
+## Usage
