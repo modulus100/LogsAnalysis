@@ -9,7 +9,9 @@ technologies: Python, Flask,
 Angular js, Node js, PostgreSQL. The application analysis the data logs and 
 shows the result on html page, it's intended for determining the most
 popular authors, articles and the dates did more than 1% of requests lead to
- errors.
+ errors. It's divided into two parts: the client and the server. The client 
+ is Angular js SPA applications and the server is Python based back end that
+  provides REST API.
  
  
 ## Setup
@@ -60,3 +62,7 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 ## Usage
+
+
+
+### Client
