@@ -13,8 +13,7 @@ FROM log l
 INNER JOIN articles art ON l.path ILIKE '%' || art.slug || '%'
 INNER JOIN authors a on a.id = art.author
 GROUP BY a.name
-ORDER BY cnt DESC
-LIMIT 3;
+ORDER BY cnt DESC;
 
 
 -- Task 3
