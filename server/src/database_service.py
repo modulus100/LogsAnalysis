@@ -1,11 +1,9 @@
-import psycopg2, bleach
-
-DBNAME = "news"
+#!/usr/bin/env python3
+import psycopg2
 
 
 class DatabaseService(object):
-    @staticmethod
-    def get_popular_articles():
+    def get_popular_articles(self):
         """Return the most popular three articles of all time."""
         query = """
             SELECT art.title, count(art.slug) AS cnt
@@ -15,9 +13,11 @@ class DatabaseService(object):
             ORDER BY cnt DESC
             LIMIT 3;"""
 
-        db = psycopg2.connect(database=DBNAME)
+        db = None
+        articles = None
+
         try:
-            c = db.cursor()
+            db, c = self.connect()
             c.execute(query)
             articles = c.fetchall()
             db.commit()
@@ -25,8 +25,7 @@ class DatabaseService(object):
             db.close()
         return articles
 
-    @staticmethod
-    def get_popular_authors():
+    def get_popular_authors(self):
         """Return the most popular article authors of all time."""
         query = """
             SELECT a.name, count(a.name) AS cnt
@@ -36,9 +35,11 @@ class DatabaseService(object):
             GROUP BY a.name
             ORDER BY cnt DESC;"""
 
-        db = psycopg2.connect(database=DBNAME)
+        db = None
+        authors = None
+
         try:
-            c = db.cursor()
+            db, c = self.connect()
             c.execute(query)
             authors = c.fetchall()
             db.commit()
@@ -46,17 +47,24 @@ class DatabaseService(object):
             db.close()
         return authors
 
-    @staticmethod
-    def get_dates():
+    def get_dates(self):
         """Days that did more than 1% of requests lead to errors."""
         query = """SELECT * FROM get_dates_by_ratio(1);"""
+        db = None
+        dates = None
 
-        db = psycopg2.connect(database=DBNAME)
         try:
-            c = db.cursor()
+            db, c = self.connect()
             c.execute(query)
             dates = c.fetchall()
             db.commit()
         finally:
             db.close()
         return dates
+
+    @staticmethod
+    def connect(database_name="news"):
+        db = psycopg2.connect("dbname={}".format(database_name))
+        cursor = db.cursor()
+        return db, cursor
+
